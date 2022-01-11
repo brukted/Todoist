@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0rem;
+  padding: 0rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.lightTheme {
+  --primary: #0077ff;
+  --onPrimary: #ffffff;
+  --primaryContainer: #d6e2ff;
+  --onPrimaryContainer: #001a43;
+  --secondary: #3658b9;
+  --onSecondary: #ffffff;
+  --secondaryContainer: #dae1ff;
+  --onSecondaryContainer: #00154f;
+  --tertiary: #3658b9;
+  --onTertiary: #ffffff;
+  --tertiaryContainer: #dae1ff;
+  --onTertiaryContainer: #00154f;
+  --error: #ba1b1b;
+  --errorContainer: #ffdad4;
+  --onError: #ffffff;
+  --onErrorContainer: #410001;
+  --background: #f1f1f1;
+  --onBackground: #2b2b2b;
+  --surface: #ffffff;
+  --onSurface: #1f1a1b;
+  --surfaceVariant: #e1e2ec;
+  --onSurfaceVariant: #44474f;
+  --outline: #eeeeee;
+  --inverseOnSurface: #faeeef;
+  --inverseSurface: #352f30;
+  --primaryInverse: #acc7ff;
+  /**Color Opacities**/
+  --primaryText: 0.94;
+  --secondaryText: 0.6;
+  --disabledText: 0.38;
+  --outlineSize: 0.1rem;
+  /**Values**/
+  --borderRadius: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  opacity: var(--primaryText);
+}
+.body {
+  display: grid;
+  grid-template-areas: "nav" "main" "footer";
+  grid-template-rows: auto 1fr auto;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: var(--background);
+}
+
+.nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: inherit;
+  opacity: var(--primaryText);
+  color: var(--primary);
+  letter-spacing: 0.2em;
+  text-decoration: none;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.footer__text {
+  color: var(--onBackground);
+  opacity: var(--secondaryText);
+}
+
+.main {
+  grid-area: main;
+}

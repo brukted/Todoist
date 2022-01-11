@@ -1,0 +1,47 @@
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addTaskForm {
+  background-color: var(--surface);
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.inputSection__input {
+  padding: 0.3rem;
+  border-radius: var(--borderRadius);
+  border: var(--outline) solid var(--outlineSize);
+}
+
+.inputSection__input-error {
+  border: hsl(0, 97%, 69%) solid var(--outlineSize);
+}
+
+.inputSection__errorIcon {
+  margin: 0.3rem;
+}
+
+.inputSection__errorMessage {
+  font-size: 0.75rem;
+  color: hsl(0, 97%, 69%);
+}
+
+.addTaskForm__submit {
+  padding: 0.3rem;
+  border-radius: var(--borderRadius);
+  border: none;
+  background: var(--primary);
+  color: var(--onPrimary);
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/todo.css}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Todo</title>
+  </head>
+  <body class="lightTheme body">
+    <form
+      class="addTaskForm"
+      th:action="@{/todo}"
+      method="post"
+      th:object="${todo}"
+    >
+      <h1>Add Task</h1>
+      <div class="inputSection">
+        <label for="title" class="inputSection__label">Title</label>
+        <input
+          type="text"
+          th:field="*{title}"
+          placeholder="Title"
+          th:class="|inputSection__input ${#fields.hasErrors('title')}? 'inputSection\_\_input-error'|"
+        />
+        <p
+          class="inputSection__errorMessage"
+          th:if="${#fields.hasErrors('title')}"
+          th:errors="*{title}"
+        >
+          <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+          >Lorem ipsum dolor sit amet.
+        </p>
+      </div>
+      <div class="inputSection">
+        <label for="description" class="inputSection__label">Description</label>
+        <textarea
+          th:field="*{description}"
+          placeholder="Description"
+          th:class="|inputSection__input ${#fields.hasErrors('description')}? 'inputSection\_\_input-error'|"
+        ></textarea>
+        <p
+          class="inputSection__errorMessage"
+          th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"
+        >
+          <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+          >Lorem ipsum dolor sit amet.
+        </p>
+      </div>
+      <div class="inputSection">
+        <label for="deadline" class="inputSection__label">Deadline</label>
+        <input
+          type="date"
+          th:field="*{deadline}"
+          placeholder="Deadline"
+          th:class="|inputSection__input ${#fields.hasErrors('deadline')}? 'inputSection\_\_input-error'|"
+        />
+        <p
+          class="inputSection__errorMessage"
+          th:if="${#fields.hasErrors('deadline')}"
+          th:errors="*{deadline}"
+        >
+          <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+          >Lorem ipsum dolor sit amet.
+        </p>
+      </div>
+      <div>
+        <button type="submit" class="addTaskForm__submit">Add Task</button>
+      </div>
+    </form>
+  </body>
+</html>
