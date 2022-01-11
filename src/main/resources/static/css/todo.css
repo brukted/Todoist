@@ -6,23 +6,31 @@
 
 .addTaskForm {
   background-color: var(--surface);
-  padding: 1rem;
+  padding: 3rem;
   border-radius: var(--borderRadius);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  max-width: 40rem;
+  margin: 2rem;
 }
 
 .inputSection {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  width: 100%;
 }
 
 .inputSection__input {
   padding: 0.3rem;
   border-radius: var(--borderRadius);
   border: var(--outline) solid var(--outlineSize);
+}
+
+.inputSection__input-title {
+  max-width: 20rem;
 }
 
 .inputSection__input-error {

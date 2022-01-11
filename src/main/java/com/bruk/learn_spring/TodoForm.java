@@ -13,7 +13,7 @@ import java.util.Date;
 @Data
 public class TodoForm {
     @NotBlank(message = "Title is required")
-    @Size(min = 3, max = 30, message = "Title must be between 3 and 30 characters")
+    @Size(min = 3, max = 20, message = "Title must be between 3 and 20 characters")
     private String title;
 
     @NotBlank(message = "Description is required")

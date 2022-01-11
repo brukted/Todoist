@@ -35,4 +35,22 @@ public class TodoController {
         todoRepository.save(todo.getTodo());
         return "redirect:/";
     }
+
+    @PostMapping("/modify-todo")
+    public String modifyTodo(long id, boolean isCompleted) {
+        log.info("Todo modified: id {}", id);
+        todoRepository.findById(id).ifPresent(todo -> {
+            todo.setCompleted(isCompleted);
+            todoRepository.save(todo);
+        });
+        return "redirect:/";
+    }
+
+    @PostMapping("/delete-todo")
+    public String deleteTodo(long id) {
+        log.info("Todo deleted: id {}", id);
+        todoRepository.deleteById(id);
+        return "redirect:/";
+    }
+
 }

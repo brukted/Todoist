@@ -34,7 +34,7 @@
           type="text"
           th:field="*{title}"
           placeholder="Title"
-          th:class="|inputSection__input ${#fields.hasErrors('title')}? 'inputSection\_\_input-error'|"
+          th:class="|inputSection\_\_input inputSection\_\_input-title ${#fields.hasErrors('title')}? 'inputSection\_\_input-error'|"
         />
         <p
           class="inputSection__errorMessage"
