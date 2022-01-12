@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Home</title>
+  </head>
+  <body class="lightTheme body">
+    <nav class="nav">
+      <a class="nav__logo" th:href="@{/}"> Todoist </a>
+      <p class="nav__register">
+        Don't have an account?
+        <a class="nav__registerLink" th:href="@{/registration}">Register</a>
+      </p>
+    </nav>
+    <main class="main">
+      <form th:action="@{/login}" method="post" class="loginForm">
+        <h1 class="loginForm__title">Login</h1>
+        <div class="inputSection">
+          <label for="username" class="inputSection__label">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="inputSection__input"
+          />
+        </div>
+        <div class="inputSection">
+          <label for="password" class="inputSection__label">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="inputSection__input"
+          />
+        </div>
+        <button type="submit" class="loginForm__submit">Login</button>
+      </form>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">&copy;2021, All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

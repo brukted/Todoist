@@ -1,4 +1,9 @@
-.nav__add {
+.nav__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav__action {
   padding: 0.5rem;
   display: flex;
   align-items: center;

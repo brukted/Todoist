@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  lang="en"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/registration.css}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Registration</title>
+  </head>
+  <body class="lightTheme body">
+    <nav class="nav">
+      <a class="nav__logo" th:href="@{/}"> Todoist </a>
+      <p class="nav__login">
+        Already have an account?
+        <a class="nav__loginLink" th:href="@{/login}">Login</a>
+      </p>
+    </nav>
+    <main class="main">
+      <form
+        th:action="@{/registration}"
+        method="post"
+        class="registrationForm"
+        th:object="${registrationForm}"
+      >
+        <h1 class="registrationForm__title">Registration</h1>
+        <div class="inputSection">
+          <label class="inputSection__label" for="firstName">
+            First Name
+          </label>
+          <input
+            th:class="|inputSection\_\_input ${#fields.hasErrors('firstName')}? 'inputSection\_\_input-error'|"
+            type="text"
+            id="firstName"
+            name="firstName"
+            th:field="*{firstName}"
+          />
+          <p
+            class="inputSection__errorMessage"
+            th:if="${#fields.hasErrors('firstName')}"
+            th:errors="*{firstName}"
+          >
+            <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+            >Errors appear here
+          </p>
+        </div>
+        <div class="inputSection">
+          <label class="inputSection__label" for="lastName"> Last Name </label>
+          <input
+            th:class="|inputSection\_\_input ${#fields.hasErrors('lastName')}? 'inputSection\_\_input-error'|"
+            type="text"
+            id="lastName"
+            name="lastName"
+            th:field="*{lastName}"
+          />
+          <p
+            class="inputSection__errorMessage"
+            th:if="${#fields.hasErrors('lastName')}"
+            th:errors="*{lastName}"
+          >
+            <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+            >Errors appear here
+          </p>
+        </div>
+        <div class="inputSection">
+          <label class="inputSection__label" for="username"> Username </label>
+          <input
+            th:class="|inputSection\_\_input ${#fields.hasErrors('username')}? 'inputSection\_\_input-error'|"
+            type="text"
+            id="username"
+            name="username"
+            th:field="*{username}"
+          />
+          <p
+            class="inputSection__errorMessage"
+            th:if="${#fields.hasErrors('username')}"
+            th:errors="*{username}"
+          >
+            <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+            >Errors appear here
+          </p>
+        </div>
+        <div class="inputSection">
+          <label class="inputSection__label" for="email"> Email </label>
+          <input
+            th:class="|inputSection\_\_input ${#fields.hasErrors('email')}? 'inputSection\_\_input-error'|"
+            type="email"
+            id="email"
+            name="email"
+            th:field="*{email}"
+          />
+          <p
+            class="inputSection__errorMessage"
+            th:if="${#fields.hasErrors('email')}"
+            th:errors="*{email}"
+          >
+            <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+            >Errors appear here
+          </p>
+        </div>
+        <div class="inputSection">
+          <label class="inputSection__label" for="password"> Password </label>
+          <input
+            th:class="|inputSection\_\_input ${#fields.hasErrors('password')}? 'inputSection\_\_input-error'|"
+            type="password"
+            id="password"
+            name="password"
+            th:field="*{password}"
+          />
+          <p
+            class="inputSection__errorMessage"
+            th:if="${#fields.hasErrors('password')}"
+            th:errors="*{password}"
+          >
+            <i class="fas fa-exclamation-triangle inputSection__errorIcon"></i
+            >Errors appear here
+          </p>
+        </div>
+        <button class="registrationForm__submit" type="submit">Register</button>
+      </form>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">&copy;2021, All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

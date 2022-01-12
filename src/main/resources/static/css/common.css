@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 * {
+  margin: 0em;
+  padding: 0em;
   box-sizing: border-box;
-  margin: 0rem;
-  padding: 0rem;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -75,7 +75,6 @@ p {
   text-transform: uppercase;
   font-weight: bold;
   background-color: inherit;
-  opacity: var(--primaryText);
   color: var(--primary);
   letter-spacing: 0.2em;
   text-decoration: none;

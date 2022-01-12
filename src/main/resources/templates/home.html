@@ -23,9 +23,16 @@
   <body class="lightTheme body">
     <nav class="nav">
       <a class="nav__logo" th:href="@{/}"> Todoist </a>
-      <a class="nav__add" th:href="@{/todo}">
-        <i class="fas fa-plus"></i>Add
-      </a>
+      <div class="nav__actions">
+        <a class="nav__action" th:href="@{/todo}">
+          <i class="fas fa-plus"></i>Add
+        </a>
+        <form th:action="@{/logout}" method="post">
+          <button type="submit" class="nav__action">
+            <i class="fas fa-sign-out-alt"></i>Logout
+          </button>
+        </form>
+      </div>
     </nav>
     <main class="main">
       <!--Toodo -->

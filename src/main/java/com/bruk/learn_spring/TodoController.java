@@ -2,6 +2,9 @@ package com.bruk.learn_spring;
 
 import javax.validation.Valid;
 
+import com.bruk.learn_spring.security.User;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,31 +28,41 @@ public class TodoController {
     }
 
     @PostMapping("/todo")
-    public String addTodo(@Valid @ModelAttribute("todo") TodoForm todo, Errors errors) {
+    public String addTodo(@Valid @ModelAttribute("todo") TodoForm todo, Errors errors,
+            @AuthenticationPrincipal User user) {
         if (errors.hasErrors()) {
             log.error("Validation errors: {}", errors);
             return "todo";
         }
 
         log.info("Todo added: {}", todo);
-        todoRepository.save(todo.getTodo());
+        Todo entity = todo.getTodo();
+        entity.setUser(user);
+        todoRepository.save(entity);
         return "redirect:/";
     }
 
     @PostMapping("/modify-todo")
-    public String modifyTodo(long id, boolean isCompleted) {
-        log.info("Todo modified: id {}", id);
+    public String modifyTodo(long id, boolean isCompleted, @AuthenticationPrincipal User user) {
         todoRepository.findById(id).ifPresent(todo -> {
-            todo.setCompleted(isCompleted);
-            todoRepository.save(todo);
+            if (todo.getUser().equals(user)) {
+                log.info("Todo modified: id {}", id);
+                todo.setCompleted(isCompleted);
+                todoRepository.save(todo);
+            }
         });
         return "redirect:/";
     }
 
     @PostMapping("/delete-todo")
-    public String deleteTodo(long id) {
-        log.info("Todo deleted: id {}", id);
-        todoRepository.deleteById(id);
+    public String deleteTodo(long id, @AuthenticationPrincipal User user) {
+        Todo todo = todoRepository.findById(id).orElse(null);
+        if (todo != null) {
+            if (todo.getUser().equals(user)) {
+                log.info("Todo deleted: id {}", id);
+                todoRepository.deleteById(id);
+            }
+        }
         return "redirect:/";
     }
 
