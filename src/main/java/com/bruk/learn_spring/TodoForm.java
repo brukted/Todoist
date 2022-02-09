@@ -22,7 +22,7 @@ public class TodoForm {
 
     @Future(message = "Deadline must be in the future")
     @NotNull(message = "Deadline is required")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deadline;
 
     public Todo getTodo() {
